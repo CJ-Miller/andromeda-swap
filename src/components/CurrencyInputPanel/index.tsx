@@ -4,6 +4,7 @@ import { Button, ChevronDownIcon, Text } from '@pancakeswap-libs/uikit'
 import styled from 'styled-components'
 import { darken } from 'polished'
 import useI18n from 'hooks/useI18n'
+import CurrencyList from 'components/SearchModal/CurrencyList'
 import { useCurrencyBalance } from '../../state/wallet/hooks'
 import CurrencySearchModal from '../SearchModal/CurrencySearchModal'
 import CurrencyLogo from '../CurrencyLogo'
@@ -99,6 +100,17 @@ export default function CurrencyInputPanel({
   id,
   showCommonBases,
 }: CurrencyInputPanelProps) {
+  /*
+ "name": "Electrik",
+      "symbol": "ELTRK",
+      "address": "0x34ef48fa753902c47e7a5f6733be94126d14d762",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://i.ibb.co/7pgDwkJ/Electrik-Logo-01.png"
+
+  */
+  //    protected constructor(decimals: number, symbol?: string, name?: string);
+
   const [modalOpen, setModalOpen] = useState(false)
   const { account } = useActiveWeb3React()
   const selectedCurrencyBalance = useCurrencyBalance(account ?? undefined, currency ?? undefined)

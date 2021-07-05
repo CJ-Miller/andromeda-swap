@@ -14,6 +14,7 @@ const MobilePopupWrapper = styled.div<{ height: string | number }>`
 
   ${({ theme }) => theme.mediaQueries.sm} {
     display: block;
+    background-color: #4287f5;
   }
 `
 
@@ -38,7 +39,7 @@ const FixedPopupColumn = styled(AutoColumn)`
   z-index: 2;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    display: none;
+    background-color: #4287f5;
   }
 `
 

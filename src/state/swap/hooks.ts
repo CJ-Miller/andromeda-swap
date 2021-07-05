@@ -200,6 +200,7 @@ export function useDerivedSwapInfo(): {
 function parseCurrencyFromURLParameter(urlParam: any): string {
   if (typeof urlParam === 'string') {
     const valid = isAddress(urlParam)
+    console.log(valid)
     if (valid) return valid
     if (urlParam.toUpperCase() === 'BNB') return 'BNB'
     if (valid === false) return 'BNB'
@@ -228,8 +229,8 @@ function validatedRecipient(recipient: any): string | null {
 }
 
 export function queryParametersToSwapState(parsedQs: ParsedQs): SwapState {
-  let inputCurrency = parseCurrencyFromURLParameter(parsedQs.inputCurrency)
-  let outputCurrency = parseCurrencyFromURLParameter(parsedQs.outputCurrency)
+  let inputCurrency = parseCurrencyFromURLParameter('0x34ef48fa753902c47e7a5f6733be94126d14d762')
+  let outputCurrency = parseCurrencyFromURLParameter('')
   if (inputCurrency === outputCurrency) {
     if (typeof parsedQs.outputCurrency === 'string') {
       inputCurrency = ''

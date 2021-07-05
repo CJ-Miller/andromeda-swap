@@ -290,7 +290,6 @@ export default function AddLiquidity({
 
   return (
     <Container>
-      <CardNav activeIndex={1} />
       <AppBody>
         <AddRemoveTabs adding />
         <Wrapper>
@@ -357,7 +356,7 @@ export default function AddLiquidity({
                 id="add-liquidity-input-tokenb"
                 showCommonBases={false}
               />
-              {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
+              {/* {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
                 <div>
                   <UIKitText
                     style={{ textTransform: 'uppercase', fontWeight: 600 }}
@@ -437,7 +436,7 @@ export default function AddLiquidity({
                     {error ?? "You can't add liquidity on V1"}
                   </Button>
                 </AutoColumn>
-              )}
+              )} */}
             </AutoColumn>
           </CardBody>
         </Wrapper>

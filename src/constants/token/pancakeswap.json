@@ -11,6 +11,15 @@
   "keywords": ["pancake", "default"],
   "tokens": [
     {
+      "name": "Electrik",
+      "symbol": "ELTRK",
+      "address": "0x34ef48fa753902c47e7a5f6733be94126d14d762",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://i.ibb.co/7pgDwkJ/Electrik-Logo-01.png"
+    },
+
+    {
       "name": "WBNB Token",
       "symbol": "WBNB",
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",

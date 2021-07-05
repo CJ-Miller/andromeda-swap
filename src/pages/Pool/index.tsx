@@ -31,9 +31,10 @@ export default function Pool() {
     () => trackedTokenPairs.map((tokens) => ({ liquidityToken: toV2LiquidityToken(tokens), tokens })),
     [trackedTokenPairs]
   )
-  const liquidityTokens = useMemo(() => tokenPairsWithLiquidityTokens.map((tpwlt) => tpwlt.liquidityToken), [
-    tokenPairsWithLiquidityTokens,
-  ])
+  const liquidityTokens = useMemo(
+    () => tokenPairsWithLiquidityTokens.map((tpwlt) => tpwlt.liquidityToken),
+    [tokenPairsWithLiquidityTokens]
+  )
   const [v2PairsBalances, fetchingV2PairBalances] = useTokenBalancesWithLoadingIndicator(
     account ?? undefined,
     liquidityTokens
@@ -56,14 +57,13 @@ export default function Pool() {
 
   return (
     <Container>
-      <CardNav activeIndex={1} />
       <AppBody>
         <PageHeader
           title={TranslateString(262, 'Liquidity')}
           description={TranslateString(1168, 'Add liquidity to receive LP tokens')}
         >
-          <Button id="join-pool-button" disabled mb="16px">
-            {TranslateString(168, "You can't add liquidity on V1")}
+          <Button id="join-pool-button" mb="16px">
+            Join
           </Button>
         </PageHeader>
         <AutoColumn gap="lg" justify="center">

@@ -1,4 +1,5 @@
 import React, { Suspense, useEffect, useState } from 'react'
+import NavBar from 'components/NavBar/NavBar'
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
@@ -28,17 +29,33 @@ const AppWrapper = styled.div`
   flex-flow: column;
   align-items: flex-start;
   overflow-x: hidden;
+  width: -webkit-fill-available;
+  background-image: url('/images/test.svg');
+  font-size: 24px;
+  height: 100%;
+  height: 100%;
+  height: -moz-available; /* WebKit-based browsers will ignore this. */
+  height: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+  height: fill-available;
+  min-height: 100vh;
 `
 
 const BodyWrapper = styled.div`
-  overflow-y: auto;
-  overflow-x: hidden;
+  font-size: 24px;
+  display: flex;
+  height: 100%;
+  height: 100%;
+  height: -moz-available; /* WebKit-based browsers will ignore this. */
+  height: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+  height: fill-available;
+  width: -webkit-fill-available;
   z-index: 1;
-  margin-bottom: 64px;
   ${({ theme }) => theme.mediaQueries.lg} {
-    margin-bottom: 0;
+    min-height: 100vh;
   }
 `
+
+const SvgWrapper = styled.div``
 
 const CACHE_KEY = 'pancakeSwapLanguage'
 
@@ -114,30 +131,27 @@ export default function App() {
               setTranslatedLanguage,
             }}
           >
+            <SvgWrapper />
+
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
-              <Menu>
-                <BodyWrapper>
-                  <Popups />
-                  <Web3ReactManager>
-                    <Switch>
-                      <Route exact strict path="/swap" component={Swap} />
-                      <Route exact strict path="/find" component={PoolFinder} />
-                      <Route exact strict path="/pool" component={Pool} />
-                      <Route exact path="/add" component={AddLiquidity} />
-                      <Route exact path="/migrate" component={Migration} />
-                      <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
+              <Popups />
+              <Web3ReactManager>
+                <Switch>
+                  <Route exact strict path="/swap" component={Swap} />
+                  <Route exact strict path="/find" component={PoolFinder} />
+                  <Route exact strict path="/pool" component={Pool} />
+                  <Route exact path="/add" component={AddLiquidity} />
+                  <Route exact path="/migrate" component={Migration} />
+                  <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
 
-                      {/* Redirection: These old routes are still used in the code base */}
-                      <Route exact path="/add/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
-                      <Route exact path="/add/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
-                      <Route exact strict path="/remove/:tokens" component={RedirectOldRemoveLiquidityPathStructure} />
+                  {/* Redirection: These old routes are still used in the code base */}
+                  <Route exact path="/add/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
+                  <Route exact path="/add/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
+                  <Route exact strict path="/remove/:tokens" component={RedirectOldRemoveLiquidityPathStructure} />
 
-                      <Route component={RedirectPathToSwapOnly} />
-                    </Switch>
-                  </Web3ReactManager>
-                </BodyWrapper>
-              </Menu>
-              <VersionBar />
+                  <Route component={RedirectPathToSwapOnly} />
+                </Switch>
+              </Web3ReactManager>
             </TranslationsContext.Provider>
           </LanguageContext.Provider>
         </AppWrapper>

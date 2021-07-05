@@ -60,6 +60,8 @@ export function useToken(tokenAddress?: string): Token | undefined | null {
 
   const tokenContract = useTokenContract(address || undefined, false)
   const tokenContractBytes32 = useBytes32TokenContract(address || undefined, false)
+  //     constructor(chainId: ChainId, address: string, decimals: number, symbol?: string, name?: string);
+
   const token: Token | undefined = address ? tokens[address] : undefined
 
   const tokenName = useSingleCallResult(token ? undefined : tokenContract, 'name', undefined, NEVER_RELOAD)

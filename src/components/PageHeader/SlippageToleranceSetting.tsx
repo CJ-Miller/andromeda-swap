@@ -26,7 +26,7 @@ const Options = styled.div`
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    flex-direction: row;
+    background-color: #000000;
   }
 `
 

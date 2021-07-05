@@ -29,9 +29,9 @@ const PageHeader = ({ title, description, children }: PageHeaderProps) => {
     <StyledPageHeader>
       <Flex alignItems="center">
         <Details>
-          <Heading mb="8px">{title}</Heading>
+          <Heading mb="24px">{title}</Heading>
           {description && (
-            <Text color="textSubtle" fontSize="14px">
+            <Text color="textSubtle" fontSize="16px">
               {description}
             </Text>
           )}

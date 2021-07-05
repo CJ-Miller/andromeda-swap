@@ -46,7 +46,6 @@ const FAQ = () => {
           ))}
         </CardBody>
       </Card>
-      <Image src="/images/migrate.svg" width={242} height={227} mt="16px" />
     </Wrapper>
   )
 }
